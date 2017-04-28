@@ -20,7 +20,7 @@
   "main": "lib/requestService.js",
   "dependencies": {
     "retry": "0.10.1",
-    "seal-connect-service": "1.0.7",
+    "seal-connect-service": "1.0.8",
     "@sealsystems/seal-consul": "3.5.4",
     "seal-log": "1.2.0"
   },

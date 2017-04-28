@@ -7,7 +7,7 @@ let resolveError;
 let resolveErrorIndex;
 const resolveResult = [];
 const resolve = proxyquire('../lib/resolve', {
-  'seal-consul': {
+  '@sealsystems/seal-consul': {
     resolveService (serviceName, callback) {
       process.nextTick(() => {
         callback(resolveError[resolveErrorIndex++], resolveResult);
