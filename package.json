@@ -1,6 +1,6 @@
 {
   "name": "seal-request-service",
-  "version": "2.2.23",
+  "version": "2.2.24",
   "description": "Makes a request to a service, using consul for discovery and lookup",
   "author": {
     "name": "SEAL Systems AG",
