@@ -20,16 +20,16 @@
   "main": "lib/requestService.js",
   "dependencies": {
     "retry": "0.10.1",
-    "seal-connect-service": "1.0.8",
-    "@sealsystems/seal-consul": "3.5.4",
+    "seal-connect-service": "1.0.9",
+    "@sealsystems/seal-consul": "3.5.7",
     "seal-log": "1.2.0"
   },
   "devDependencies": {
-    "assertthat": "0.9.0",
+    "assertthat": "0.10.3",
     "eslint-config-seal": "0.0.9",
-    "proxyquire": "1.7.11",
-    "roboter": "0.15.1",
-    "roboter-server": "0.15.1"
+    "proxyquire": "1.8.0",
+    "roboter": "0.15.3",
+    "roboter-server": "0.15.3"
   },
   "repository": {
     "type": "git",
