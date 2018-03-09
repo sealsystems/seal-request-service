@@ -96,6 +96,5 @@ suite('requestService', () => {
     assert.that(connectedServices.length).is.equalTo(1);
     assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
     assert.that(client).is.equalTo('This is a client.');
-    
   });
 });
