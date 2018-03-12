@@ -20,14 +20,14 @@
   "main": "lib/requestService.js",
   "dependencies": {
     "retry": "0.10.1",
-    "seal-connect-service": "1.0.9",
+    "@sealsystems/connect-service": "1.0.12",
     "@sealsystems/consul": "3.5.12",
     "seal-log": "1.2.0"
   },
   "devDependencies": {
     "assertthat": "1.0.0",
     "@sealsystems/eslint-config-es": "1.1.1",
-    "proxyquire": "1.8.0",
+    "proxyquire": "2.0.0",
     "roboter": "0.16.0",
     "roboter-server": "0.16.0"
   },

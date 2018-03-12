@@ -9,9 +9,14 @@ let resolveError;
 let resolvedServices;
 
 const requestService = proxyquire('../lib/requestService', {
-  'seal-connect-service' (options, host, callback) {
+  async '@sealsystems/connect-service' (options, host) {
+    if (connectError) {
+      throw connectError;
+    }
+
     connectedServices.push(host);
-    callback(connectError, `This is a client.`);
+
+    return `This is a client.`;
   },
   async './resolve' () {
     if (resolveError) {
