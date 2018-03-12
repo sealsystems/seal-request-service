@@ -1,7 +1,7 @@
 # @sealsystems/request-service
 
-[![CircleCI](https://circleci.com/gh/sealsystems/seal-request-service.svg?style=svg)](https://circleci.com/gh/sealsystems/seal-request-service)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/oi6bpwnv5emfu2e5?svg=true)](https://ci.appveyor.com/project/Plossys/seal-request-service)
+[![CircleCI](https://circleci.com/gh/sealsystems/node-request-service.svg?style=svg)](https://circleci.com/gh/sealsystems/node-request-service)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/chim3vr5tfkbj03p?svg=true)](https://ci.appveyor.com/project/Plossys/node-request-service)
 
 Makes a request to a service, using consul for discovery and lookup.
 
