@@ -1,5 +1,5 @@
 {
-  "name": "seal-request-service",
+  "name": "@sealsystems/request-service",
   "version": "2.2.25",
   "description": "Makes a request to a service, using consul for discovery and lookup",
   "author": {
@@ -20,19 +20,19 @@
   "main": "lib/requestService.js",
   "dependencies": {
     "retry": "0.10.1",
-    "seal-connect-service": "1.0.9",
-    "@sealsystems/seal-consul": "3.5.7",
+    "@sealsystems/connect-service": "1.0.12",
+    "@sealsystems/consul": "3.5.12",
     "seal-log": "1.2.0"
   },
   "devDependencies": {
-    "assertthat": "0.10.3",
-    "eslint-config-seal": "0.0.9",
-    "proxyquire": "1.8.0",
-    "roboter": "0.15.3",
-    "roboter-server": "0.15.3"
+    "assertthat": "1.0.0",
+    "@sealsystems/eslint-config-es": "1.1.1",
+    "proxyquire": "2.0.0",
+    "roboter": "0.16.0",
+    "roboter-server": "0.16.0"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sealsystems/seal-request-service.git"
+    "url": "git://github.com/sealsystems/node-request-service.git"
   }
 }
