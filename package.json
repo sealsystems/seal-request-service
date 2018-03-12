@@ -34,5 +34,8 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/sealsystems/node-request-service.git"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
