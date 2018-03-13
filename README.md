@@ -60,7 +60,7 @@ The return value `req` contains a [http.ClientRequest](https://nodejs.org/api/ht
 
 ## HTTP and HTTPS
 
-The protocol used for a connection depends on the target (the service resides in the local or a remote host) and the value of the environment variable TLS_UNPROTECTED. The TLS certificates provided by `seal-tlscert` will be used for HTTPS connections. It is not possible to override the chosen protocol.
+The protocol used for a connection depends on the target (the service resides in the local or a remote host) and the value of the environment variable TLS_UNPROTECTED. The TLS certificates provided by `@sealsystems/tlscert` will be used for HTTPS connections. It is not possible to override the chosen protocol.
 
 Used protocol:
 
