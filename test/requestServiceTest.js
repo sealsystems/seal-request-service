@@ -1,6 +1,7 @@
 'use strict';
 
 const assert = require('assertthat');
+const nodeenv = require('nodeenv');
 const proxyquire = require('proxyquire');
 
 let connectError;
@@ -14,6 +15,12 @@ const requestService = proxyquire('../lib/requestService', {
   },
   './resolve' (service, callback) {
     callback(resolveError, resolvedServices);
+  },
+  http: {
+    request (options, callback) {
+      connectedServices.push(options.hostname);
+      callback(connectError, `This is an http client.`);
+    }
   }
 });
 
@@ -112,6 +119,26 @@ suite('requestService', () => {
       assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
       assert.that(client).is.equalTo('This is a client.');
       done();
+    });
+  });
+
+  suite('cloud service discovery', () => {
+    test('directly uses http.request.', (done) => {
+      const restore = nodeenv('SERVICE_DISCOVERY', 'cloud');
+
+      const service = 'bodyscanner';
+
+      requestService({
+        service,
+        path: '/test/path'
+      }, (err, client) => {
+        assert.that(err).is.null();
+        assert.that(connectedServices.length).is.equalTo(1);
+        assert.that(connectedServices[0]).is.equalTo(service);
+        assert.that(client).is.equalTo('This is an http client.');
+        restore();
+        done();
+      });
     });
   });
 });
