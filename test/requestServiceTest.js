@@ -9,18 +9,12 @@ let connectedServices;
 let resolveError;
 let resolvedServices;
 const requestService = proxyquire('../lib/requestService', {
-  'seal-connect-service' (options, host, callback) {
+  'seal-connect-service-cl' (options, host, callback) {
     connectedServices.push(host);
     callback(connectError, `This is a client.`);
   },
   './resolve' (service, callback) {
     callback(resolveError, resolvedServices);
-  },
-  http: {
-    request (options, callback) {
-      connectedServices.push(options.hostname);
-      callback(connectError, `This is an http client.`);
-    }
   }
 });
 
@@ -135,7 +129,7 @@ suite('requestService', () => {
         assert.that(err).is.null();
         assert.that(connectedServices.length).is.equalTo(1);
         assert.that(connectedServices[0]).is.equalTo(service);
-        assert.that(client).is.equalTo('This is an http client.');
+        assert.that(client).is.equalTo('This is a client.');
         restore();
         done();
       });
