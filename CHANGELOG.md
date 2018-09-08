@@ -1,3 +1,14 @@
+## 3.1.0 (2018-09-08)
+
+### Features
+
+
+#### Use semantic-release ([9582e85](https://github.com/sealsystems/node-request-service/commit/9582e85))
+
+
+
+---
+
 # Changelog
 
 ## <a name="2-1-3"></a>2.1.3
