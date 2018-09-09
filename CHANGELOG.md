@@ -1,3 +1,14 @@
+## 3.1.1 (2018-09-09)
+
+### Bug Fixes
+
+
+#### Include all needed files in Node.js module ([c756842](https://github.com/sealsystems/node-request-service/commit/c756842))
+
+
+
+---
+
 ## 3.1.0 (2018-09-08)
 
 ### Features
