@@ -1,3 +1,14 @@
+## 3.2.0 (2018-11-15)
+
+### Features
+
+
+#### Update dependencies ([b952b9b](https://github.com/sealsystems/node-request-service/commit/b952b9b))
+
+
+
+---
+
 ## 3.1.1 (2018-09-09)
 
 ### Bug Fixes
