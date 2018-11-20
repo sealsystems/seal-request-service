@@ -1,22 +1,22 @@
-# seal-request-service
+# @sealsystems/request-service
 
-[![CircleCI](https://circleci.com/gh/sealsystems/seal-request-service.svg?style=svg)](https://circleci.com/gh/sealsystems/seal-request-service)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/oi6bpwnv5emfu2e5?svg=true)](https://ci.appveyor.com/project/Plossys/seal-request-service)
+[![CircleCI](https://circleci.com/gh/sealsystems/node-request-service.svg?style=svg)](https://circleci.com/gh/sealsystems/node-request-service)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/chim3vr5tfkbj03p?svg=true)](https://ci.appveyor.com/project/Plossys/node-request-service)
 
 Makes a request to a service, using consul for discovery and lookup.
 
 ## Installation
 
-```bash
-$ npm install seal-request-service
+```shell
+$ npm install @sealsystems/request-service
 ```
 
 ## Quick start
 
-First you need to add a reference to seal-request-service within your application.
+First you need to add a reference to @sealsystems/request-service within your application.
 
 ```javascript
-var requestService = require('seal-request-service');
+const requestService = require('@sealsystems/request-service');
 ```
 
 **Please note:** A connection to consul must already exist before you can use the module.
@@ -24,18 +24,14 @@ var requestService = require('seal-request-service');
 To create a HTTP/HTTPS request to an instance of a service use:
 
 ```javascript
-requestService({ service: 'myService' }, (err, req) => {
-  if (!err) {
-    throw new Error('An error occurred while connecting to the service.');
-  }
+const req = await requestService({ service: 'myService' });
 
-  req.on('connect', () => {
-    console.log('Connected to service!');
-  });
-
-  req.write('Hello service!');
-  req.end();
+req.on('connect', () => {
+  console.log('Connected to service!');
 });
+
+req.write('Hello service!');
+req.end();
 ```
 
 The first parameter is an `options` object that can contain the following properties:
@@ -50,7 +46,7 @@ The first parameter is an `options` object that can contain the following proper
 Here is an example of a more complete `options` object:
 
 ```javascript
-var options = {
+const options = {
   headers: {
     'content-type': 'application/json'
   },
@@ -60,11 +56,11 @@ var options = {
 };
 ```
 
-The `callback` function given as the second parameter will be called when a connection to a instance of the service could be established. In this case, the `err` parameter is `null` and the `req` parameter contains a [http.ClientRequest](https://nodejs.org/api/http.html#http_class_http_clientrequest) object for further use. Otherwise, the `err` parameter contains an `Error` object with further details about the problem.
+The return value `req` contains a [http.ClientRequest](https://nodejs.org/api/http.html#http_class_http_clientrequest) object for further use.
 
 ## HTTP and HTTPS
 
-The protocol used for a connection depends on the target (the service resides in the local or a remote host) and the value of the environment variable TLS_UNPROTECTED. The TLS certificates provided by `seal-tlscert` will be used for HTTPS connections. It is not possible to override the chosen protocol.
+The protocol used for a connection depends on the target (the service resides in the local or a remote host) and the value of the environment variable TLS_UNPROTECTED. The TLS certificates provided by `@sealsystems/tlscert` will be used for HTTPS connections. It is not possible to override the chosen protocol.
 
 Used protocol:
 
@@ -78,6 +74,6 @@ Used protocol:
 
 To build this module use [roboter](https://www.npmjs.com/package/roboter).
 
-```bash
+```shell
 $ bot
 ```

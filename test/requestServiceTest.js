@@ -8,13 +8,23 @@ let connectError;
 let connectedServices;
 let resolveError;
 let resolvedServices;
+
 const requestService = proxyquire('../lib/requestService', {
-  'seal-connect-service-cl' (options, host, callback) {
+  async '@sealsystems/connect-service' (options, host) {
+    if (connectError) {
+      throw connectError;
+    }
+
     connectedServices.push(host);
-    callback(connectError, `This is a client.`);
+
+    return `This is a client.`;
   },
-  './resolve' (service, callback) {
-    callback(resolveError, resolvedServices);
+  async './resolve' () {
+    if (resolveError) {
+      throw resolveError;
+    }
+
+    return resolvedServices;
   }
 });
 
@@ -26,60 +36,43 @@ suite('requestService', () => {
     resolvedServices = [];
   });
 
-  test('is a function', (done) => {
+  test('is a function', async () => {
     assert.that(requestService).is.ofType('function');
-    done();
   });
 
-  test('throws an error if options is missing.', (done) => {
-    assert.that(() => {
-      requestService();
-    }).is.throwing('Options are missing.');
-    done();
+  test('throws an error if options is missing.', async () => {
+    await assert.that(async () => {
+      await requestService();
+    }).is.throwingAsync('Options are missing.');
   });
 
-  test('throws an error if service name is missing.', (done) => {
-    assert.that(() => {
-      requestService({});
-    }).is.throwing('Service name is missing.');
-    done();
+  test('throws an error if service name is missing.', async () => {
+    await assert.that(async () => {
+      await requestService({});
+    }).is.throwingAsync('Service name is missing.');
   });
 
-  test('throws an error if callback is missing.', (done) => {
-    assert.that(() => {
-      requestService({
-        service: 'test service',
-        path: 'test/path'
-      });
-    }).is.throwing('Callback is missing.');
-    done();
-  });
-
-  test('returns an error if resolve failed.', (done) => {
+  test('throws an error if resolve failed.', async () => {
     resolveError = new Error('Best Error Ever');
 
-    requestService({
-      service: 'test service',
-      path: '/test/path'
-    }, (err) => {
-      assert.that(err).is.not.falsy();
-      assert.that(err.message).is.containing('Best Error Ever');
-      done();
-    });
+    await assert.that(async () => {
+      await requestService({
+        service: 'test service',
+        path: '/test/path'
+      });
+    }).is.throwingAsync('Best Error Ever');
   });
 
-  test('returns an error if empty list of services is given.', (done) => {
-    requestService({
-      service: 'test service',
-      path: 'test/path'
-    }, (err) => {
-      assert.that(err).is.not.falsy();
-      assert.that(err.message).is.equalTo('No service instances available.');
-      done();
-    });
+  test('throws an error if empty list of services is given.', async () => {
+    await assert.that(async () => {
+      await requestService({
+        service: 'test service',
+        path: '/test/path'
+      });
+    }).is.throwingAsync('No service instances available.');
   });
 
-  test('returns an error if connecting each given service failed.', (done) => {
+  test('throws an error if connecting each given service failed.', async () => {
     resolvedServices = [
       'service1',
       'service2'
@@ -87,52 +80,43 @@ suite('requestService', () => {
 
     connectError = new Error('foo');
 
-    requestService({
-      service: 'test service',
-      path: '/test/path'
-    }, (err) => {
-      assert.that(err).is.not.falsy();
-      assert.that(err.message).is.containing('foo');
-      assert.that(connectedServices).is.equalTo(resolvedServices);
-      done();
-    });
+    await assert.that(async () => {
+      await requestService({
+        service: 'test service',
+        path: '/test/path'
+      });
+    }).is.throwingAsync('foo');
   });
 
-  test('returns connected client on success.', (done) => {
+  test('returns connected client on success.', async () => {
     resolvedServices = [
       'service1',
       'service2'
     ];
 
-    requestService({
+    const client = await requestService({
       service: 'test service',
       path: '/test/path'
-    }, (err, client) => {
-      assert.that(err).is.null();
-      assert.that(connectedServices.length).is.equalTo(1);
-      assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
-      assert.that(client).is.equalTo('This is a client.');
-      done();
     });
+
+    assert.that(connectedServices.length).is.equalTo(1);
+    assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
+    assert.that(client).is.equalTo('This is a client.');
   });
 
   suite('cloud service discovery', () => {
-    test('directly uses http.request.', (done) => {
+    test('directly uses http.request.', async () => {
       const restore = nodeenv('SERVICE_DISCOVERY', 'cloud');
-
       const service = 'bodyscanner';
-
-      requestService({
+      const client = await requestService({
         service,
         path: '/test/path'
-      }, (err, client) => {
-        assert.that(err).is.null();
-        assert.that(connectedServices.length).is.equalTo(1);
-        assert.that(connectedServices[0]).is.equalTo(service);
-        assert.that(client).is.equalTo('This is a client.');
-        restore();
-        done();
       });
+
+      assert.that(connectedServices.length).is.equalTo(1);
+      assert.that(connectedServices[0]).is.equalTo({ name: service, port: 3000 });
+      assert.that(client).is.equalTo('This is a client.');
+      restore();
     });
   });
 });
