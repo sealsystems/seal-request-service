@@ -1,7 +1,8 @@
 'use strict';
 
-const assert = require('assertthat'),
-      proxyquire = require('proxyquire');
+const assert = require('assertthat');
+const nodeenv = require('nodeenv');
+const proxyquire = require('proxyquire');
 
 let connectError;
 let connectedServices;
@@ -101,5 +102,21 @@ suite('requestService', () => {
     assert.that(connectedServices.length).is.equalTo(1);
     assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
     assert.that(client).is.equalTo('This is a client.');
+  });
+
+  suite('cloud service discovery', () => {
+    test('directly uses http.request.', async () => {
+      const restore = nodeenv('SERVICE_DISCOVERY', 'cloud');
+      const service = 'bodyscanner';
+      const client = await requestService({
+        service,
+        path: '/test/path'
+      });
+
+      assert.that(connectedServices.length).is.equalTo(1);
+      assert.that(connectedServices[0]).is.equalTo({ name: service, port: 3000 });
+      assert.that(client).is.equalTo('This is a client.');
+      restore();
+    });
   });
 });
