@@ -27,7 +27,7 @@
     "retry": "0.12.0"
   },
   "devDependencies": {
-    "@sealsystems/eslint-config-es": "3.5.2",
+    "@sealsystems/eslint-config-es": "3.5.3",
     "@sealsystems/mocha": "3.0.15",
     "@sealsystems/semantic-release": "4.0.12",
     "nodeenv": "1.0.0",
