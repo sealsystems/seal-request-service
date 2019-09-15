@@ -10,7 +10,7 @@ let resolveError;
 let resolvedServices;
 
 const requestService = proxyquire('../lib/requestService', {
-  async '@sealsystems/connect-service' (options, host) {
+  async '@sealsystems/connect-service'(options, host) {
     if (connectError) {
       throw connectError;
     }
@@ -19,7 +19,7 @@ const requestService = proxyquire('../lib/requestService', {
 
     return `This is a client.`;
   },
-  async './resolve' () {
+  async './resolve'() {
     if (resolveError) {
       throw resolveError;
     }
@@ -41,58 +41,62 @@ suite('requestService', () => {
   });
 
   test('throws an error if options is missing.', async () => {
-    await assert.that(async () => {
-      await requestService();
-    }).is.throwingAsync('Options are missing.');
+    await assert
+      .that(async () => {
+        await requestService();
+      })
+      .is.throwingAsync('Options are missing.');
   });
 
   test('throws an error if service name is missing.', async () => {
-    await assert.that(async () => {
-      await requestService({});
-    }).is.throwingAsync('Service name is missing.');
+    await assert
+      .that(async () => {
+        await requestService({});
+      })
+      .is.throwingAsync('Service name is missing.');
   });
 
   test('throws an error if resolve failed.', async () => {
     resolveError = new Error('Best Error Ever');
 
-    await assert.that(async () => {
-      await requestService({
-        service: 'test service',
-        path: '/test/path'
-      });
-    }).is.throwingAsync('Best Error Ever');
+    await assert
+      .that(async () => {
+        await requestService({
+          service: 'test service',
+          path: '/test/path'
+        });
+      })
+      .is.throwingAsync('Best Error Ever');
   });
 
   test('throws an error if empty list of services is given.', async () => {
-    await assert.that(async () => {
-      await requestService({
-        service: 'test service',
-        path: '/test/path'
-      });
-    }).is.throwingAsync('No service instances available.');
+    await assert
+      .that(async () => {
+        await requestService({
+          service: 'test service',
+          path: '/test/path'
+        });
+      })
+      .is.throwingAsync('No service instances available.');
   });
 
   test('throws an error if connecting each given service failed.', async () => {
-    resolvedServices = [
-      'service1',
-      'service2'
-    ];
+    resolvedServices = ['service1', 'service2'];
 
     connectError = new Error('foo');
 
-    await assert.that(async () => {
-      await requestService({
-        service: 'test service',
-        path: '/test/path'
-      });
-    }).is.throwingAsync('foo');
+    await assert
+      .that(async () => {
+        await requestService({
+          service: 'test service',
+          path: '/test/path'
+        });
+      })
+      .is.throwingAsync('foo');
   });
 
   test('returns connected client on success.', async () => {
-    resolvedServices = [
-      'service1',
-      'service2'
-    ];
+    resolvedServices = ['service1', 'service2'];
 
     const client = await requestService({
       service: 'test service',
