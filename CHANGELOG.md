@@ -1,3 +1,17 @@
+## 3.3.2 (2019-09-27)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/consul from 4.0.1 to 4.1.0 ([2946cdb](https://github.com/sealsystems/node-request-service/commit/2946cdb))
+
+Bumps @sealsystems/consul from 4.0.1 to 4.1.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 3.3.1 (2019-09-18)
 
 ### Chores
