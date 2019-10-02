@@ -1,3 +1,31 @@
+## 3.3.3 (2019-09-27)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/connect-service from 2.1.3 to 2.2.0 ([46d8235](https://github.com/sealsystems/node-request-service/commit/46d8235))
+
+Bumps @sealsystems/connect-service from 2.1.3 to 2.2.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
+## 3.3.2 (2019-09-27)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/consul from 4.0.1 to 4.1.0 ([2946cdb](https://github.com/sealsystems/node-request-service/commit/2946cdb))
+
+Bumps @sealsystems/consul from 4.0.1 to 4.1.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 3.3.1 (2019-09-18)
 
 ### Chores
