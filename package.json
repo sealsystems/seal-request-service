@@ -23,7 +23,7 @@
   "dependencies": {
     "@sealsystems/connect-service": "git+https://git@github.com/sealsystems/node-connect-service.git#PLS-431",
     "@sealsystems/consul": "git+https://git@github.com/sealsystems/node-consul.git#PLS-431",
-    "@sealsystems/log": "git+https://git@github.com/sealsystems/node-log.git#PLS-431",
+    "@sealsystems/log": "2.2.0",
     "getenv": "0.7.0",
     "retry": "0.12.0"
   },
