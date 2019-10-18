@@ -1,3 +1,17 @@
+## 3.3.7 (2019-10-18)
+
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/connect-service from 2.2.3 to 2.3.0 ([2803967](https://github.com/sealsystems/node-request-service/commit/2803967))
+
+Bumps @sealsystems/connect-service from 2.2.3 to 2.3.0.
+
+Signed-off-by: dependabot-preview[bot] <support@dependabot.com>
+
+
+---
+
 ## 3.3.6 (2019-10-15)
 
 ### Chores
