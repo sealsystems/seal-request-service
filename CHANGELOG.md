@@ -1,3 +1,23 @@
+## 3.4.0 (2019-10-22)
+
+### Features
+
+
+#### PLS-431, [PLS-431](https://jira.sealsystems.de/jira/browse/PLS-431) ([eabfd9e](https://github.com/sealsystems/node-request-service/commit/eabfd9e))
+
+- Removed roboter
+ - Updated GitHub Pull Request template
+ - Updated CircleCI config
+ - Updated AppVeyor conig
+ - Updated dependencies
+ - Added `package-lock.json` to git
+ - Added `.gitignore` to git
+ - Fixed linting
+ - Used `seal-node:oss-module-update`
+
+
+---
+
 ## 3.3.7 (2019-10-18)
 
 ### Chores
