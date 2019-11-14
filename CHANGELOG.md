@@ -1,3 +1,14 @@
+## 4.0.2 (2019-11-14)
+
+### Chores
+
+
+#### improve test ([a6e4a49](https://github.com/sealsystems/node-request-service/commit/a6e4a49))
+
+
+
+---
+
 ## 4.0.1 (2019-11-14)
 
 ### Chores
