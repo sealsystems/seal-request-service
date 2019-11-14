@@ -11,6 +11,7 @@ let resolvedServices;
 
 const requestService = proxyquire('../lib/requestService', {
   async '@sealsystems/connect-service'(options, host) {
+    assert.that(options.consul).is.not.falsy();
     if (connectError) {
       throw connectError;
     }
