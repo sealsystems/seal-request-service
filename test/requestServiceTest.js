@@ -48,10 +48,18 @@ suite('requestService', () => {
       .is.throwingAsync('Options are missing.');
   });
 
+  test('throws an error if consul is missing.', async () => {
+    await assert
+      .that(async () => {
+        await requestService({ service: 'foo' });
+      })
+      .is.throwingAsync('Consul is missing.');
+  });
+
   test('throws an error if service name is missing.', async () => {
     await assert
       .that(async () => {
-        await requestService({});
+        await requestService({ consul: {} });
       })
       .is.throwingAsync('Service name is missing.');
   });
@@ -62,6 +70,7 @@ suite('requestService', () => {
     await assert
       .that(async () => {
         await requestService({
+          consul: {},
           service: 'test service',
           path: '/test/path'
         });
@@ -73,6 +82,7 @@ suite('requestService', () => {
     await assert
       .that(async () => {
         await requestService({
+          consul: {},
           service: 'test service',
           path: '/test/path'
         });
@@ -88,6 +98,7 @@ suite('requestService', () => {
     await assert
       .that(async () => {
         await requestService({
+          consul: {},
           service: 'test service',
           path: '/test/path'
         });
@@ -99,6 +110,7 @@ suite('requestService', () => {
     resolvedServices = ['service1', 'service2'];
 
     const client = await requestService({
+      consul: {},
       service: 'test service',
       path: '/test/path'
     });
@@ -113,6 +125,7 @@ suite('requestService', () => {
       const restore = nodeenv('SERVICE_DISCOVERY', 'cloud');
       const service = 'bodyscanner';
       const client = await requestService({
+        consul: {},
         service,
         path: '/test/path'
       });
