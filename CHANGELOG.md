@@ -1,3 +1,14 @@
+## 4.0.1 (2019-11-14)
+
+### Chores
+
+
+#### improve test ([a9b599b](https://github.com/sealsystems/node-request-service/commit/a9b599b))
+
+
+
+---
+
 ## 4.0.0 (2019-11-14)
 
 ### Features
