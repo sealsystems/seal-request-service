@@ -24,7 +24,10 @@ const requestService = require('@sealsystems/request-service');
 To create a HTTP/HTTPS request to an instance of a service use:
 
 ```javascript
-const req = await requestService({ service: 'myService' });
+const consul = require('@sealsystems/consul');
+consul.connect(...);
+
+const req = await requestService({ consul, service: 'myService' });
 
 req.on('connect', () => {
   console.log('Connected to service!');
@@ -38,6 +41,7 @@ The first parameter is an `options` object that can contain the following proper
 
 | property  | type            | description                        |
 |-----------|-----------------|------------------------------------|
+| consul   | required object | Consul client for service discovery |
 | service   | required string | Name of the service to access      |
 | headers   | optional object | Additional HTTP/HTTPS headers      |
 | method    | optional string | HTTP/HTTPS method, default `POST`  |
@@ -47,6 +51,7 @@ Here is an example of a more complete `options` object:
 
 ```javascript
 const options = {
+  consul,
   headers: {
     'content-type': 'application/json'
   },
@@ -69,11 +74,3 @@ Used protocol:
 | 'world'         | HTTP          | HTTP           |
 | 'loopback'      | HTTP          | HTTPS          |
 | 'none'          | HTTPS         | HTTPS          |
-
-## Running the build
-
-To build this module use [roboter](https://www.npmjs.com/package/roboter).
-
-```shell
-$ bot
-```
