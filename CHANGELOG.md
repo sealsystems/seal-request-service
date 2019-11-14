@@ -1,3 +1,28 @@
+## 4.0.0 (2019-11-14)
+
+### Features
+
+
+#### Removed requires of consul, use options parameter ([2888037](https://github.com/sealsystems/node-request-service/commit/2888037))
+
+
+
+### BREAKING CHANGES
+
+#### Interface changed: consul is now part of options parameter.
+
+Examples:
+
+```javascript
+const consul = require('@sealsystems/consul');
+
+consul.connect(...);
+
+const req = await requestService({ consul, service: 'myService' });
+```
+
+---
+
 ## 3.4.0 (2019-10-22)
 
 ### Features
