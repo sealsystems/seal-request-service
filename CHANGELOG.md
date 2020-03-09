@@ -1,3 +1,14 @@
+## 4.0.3 (2020-03-09)
+
+### Chores
+
+
+#### yoed ([258fba7](https://github.com/sealsystems/node-request-service/commit/258fba7))
+
+
+
+---
+
 ## 4.0.2 (2019-11-14)
 
 ### Chores
