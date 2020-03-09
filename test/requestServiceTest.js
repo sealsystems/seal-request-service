@@ -30,7 +30,7 @@ const requestService = proxyquire('../lib/requestService', {
 });
 
 suite('requestService', () => {
-  setup(() => {
+  setup(async () => {
     connectError = null;
     connectedServices = [];
     resolveError = null;
