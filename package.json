@@ -21,7 +21,7 @@
   },
   "main": "lib/requestService.js",
   "dependencies": {
-    "@sealsystems/connect-service": "3.0.1",
+    "@sealsystems/connect-service": "3.0.2",
     "@sealsystems/log": "2.2.0",
     "getenv": "1.0.0",
     "retry": "0.12.0"
