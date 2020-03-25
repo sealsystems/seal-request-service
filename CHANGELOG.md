@@ -1,3 +1,22 @@
+## 4.0.4 (2020-03-25)
+
+### Bug Fixes
+
+
+#### encode uri ([2a8776e](https://github.com/sealsystems/node-request-service/commit/2a8776e))
+
+fix for PLS-58
+### Chores
+
+
+#### bump [@sealsystems](https://github.com/sealsystems)/connect-service from 3.0.1 to 3.0.2 ([#43](https://github.com/sealsystems/node-request-service/issues/43)) ([30a285a](https://github.com/sealsystems/node-request-service/commit/30a285a))
+
+#### bump [@sealsystems](https://github.com/sealsystems)/log from 2.2.0 to 2.2.1 ([#44](https://github.com/sealsystems/node-request-service/issues/44)) ([1ad2b9b](https://github.com/sealsystems/node-request-service/commit/1ad2b9b))
+
+
+
+---
+
 ## 4.0.3 (2020-03-09)
 
 ### Chores
