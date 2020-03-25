@@ -8,10 +8,13 @@ let connectError;
 let connectedServices;
 let resolveError;
 let resolvedServices;
+let path;
 
 const requestService = proxyquire('../lib/requestService', {
   async '@sealsystems/connect-service'(options, host) {
     assert.that(options.consul).is.not.falsy();
+    path = options.path;
+
     if (connectError) {
       throw connectError;
     }
@@ -35,6 +38,7 @@ suite('requestService', () => {
     connectedServices = [];
     resolveError = null;
     resolvedServices = [];
+    path = null;
   });
 
   test('is a function', async () => {
@@ -119,6 +123,7 @@ suite('requestService', () => {
     assert.that(connectedServices.length).is.equalTo(1);
     assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
     assert.that(client).is.equalTo('This is a client.');
+    assert.that(path).is.equalTo('/test/path');
   });
 
   suite('cloud service discovery', () => {
@@ -136,5 +141,23 @@ suite('requestService', () => {
       assert.that(client).is.equalTo('This is a client.');
       restore();
     });
+  });
+
+  test('returns connected client on success with special charaters in the path.', async () => {
+    resolvedServices = ['service1', 'service2'];
+
+    const client = await requestService({
+      consul: {},
+      service: 'test service',
+      path: '/v3/printers/j*ü?=) (/&% $§:ÖÄ öäß+~e'
+    });
+
+    assert.that(connectedServices.length).is.equalTo(1);
+    assert.that(connectedServices[0]).is.equalTo(resolvedServices[0]);
+    assert.that(client).is.equalTo('This is a client.');
+
+    assert
+      .that(path)
+      .is.equalTo('/v3/printers/j*%C3%BC%3F%3D)%20(/%26%25%20%24%C2%A7%3A%C3%96%C3%84%20%C3%B6%C3%A4%C3%9F%2B~e');
   });
 });
