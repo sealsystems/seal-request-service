@@ -1,3 +1,12 @@
+## 4.0.5 (2020-09-02)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/log from 2.2.1 to 2.2.2 ([#56](https://github.com/sealsystems/node-request-service/issues/56)) ([f66ee60](https://github.com/sealsystems/node-request-service/commit/f66ee60))
+
+updated deps ([fb84a10](https://github.com/sealsystems/node-request-service/commit/fb84a10))
+
 ## 4.0.4 (2020-03-25)
 
 ### Bug Fixes
