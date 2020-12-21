@@ -1,3 +1,12 @@
+## 4.0.6 (2020-12-21)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/connect-service from 3.0.3 to 3.0.4 ([#70](https://github.com/sealsystems/node-request-service/issues/70)) ([7e1bc8a](https://github.com/sealsystems/node-request-service/commit/7e1bc8a))
+
+bump [@sealsystems](https://github.com/sealsystems)/log from 2.2.2 to 2.2.3 ([#77](https://github.com/sealsystems/node-request-service/issues/77)) ([1fc359d](https://github.com/sealsystems/node-request-service/commit/1fc359d))
+
 ## 4.0.5 (2020-09-02)
 
 ### Chores
