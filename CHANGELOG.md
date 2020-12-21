@@ -1,3 +1,10 @@
+## 4.0.7 (2020-12-21)
+
+### Chores
+
+
+Trigger release ([639b3da](https://github.com/sealsystems/node-request-service/commit/639b3da))
+
 ## 4.0.6 (2020-12-21)
 
 ### Chores
