@@ -1,3 +1,12 @@
+## 4.0.8 (2020-12-26)
+
+### Chores
+
+
+Update build configuration ([e59dbe3](https://github.com/sealsystems/node-request-service/commit/e59dbe3))
+
+Update build configuration ([da7b3e5](https://github.com/sealsystems/node-request-service/commit/da7b3e5))
+
 ## 4.0.7 (2020-12-21)
 
 ### Chores
