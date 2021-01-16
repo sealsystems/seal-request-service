@@ -1,3 +1,10 @@
+## 4.0.9 (2021-01-16)
+
+### Chores
+
+
+Update build config ([6ec2b66](https://github.com/sealsystems/node-request-service/commit/6ec2b66))
+
 ## 4.0.8 (2020-12-26)
 
 ### Chores
