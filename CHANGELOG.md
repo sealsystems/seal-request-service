@@ -1,3 +1,10 @@
+## 4.0.10 (2021-01-17)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/log from 2.2.3 to 2.2.5 ([#86](https://github.com/sealsystems/node-request-service/issues/86)) ([996f2bb](https://github.com/sealsystems/node-request-service/commit/996f2bb))
+
 ## 4.0.9 (2021-01-16)
 
 ### Chores
