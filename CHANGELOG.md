@@ -1,3 +1,10 @@
+## 4.0.11 (2021-01-17)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/connect-service from 3.0.4 to 3.0.7 ([#87](https://github.com/sealsystems/node-request-service/issues/87)) ([2ea8639](https://github.com/sealsystems/node-request-service/commit/2ea8639))
+
 ## 4.0.10 (2021-01-17)
 
 ### Chores
