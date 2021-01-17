@@ -1,6 +1,6 @@
 {
   "name": "@sealsystems/request-service",
-  "version": "4.0.13",
+  "version": "4.0.14",
   "description": "Makes a request to a service, using consul for discovery and lookup",
   "author": {
     "name": "SEAL Systems AG",
