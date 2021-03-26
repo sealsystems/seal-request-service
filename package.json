@@ -22,7 +22,7 @@
   "main": "lib/requestService.js",
   "dependencies": {
     "@sealsystems/connect-service": "3.0.10",
-    "@sealsystems/log": "2.2.5",
+    "@sealsystems/log": "2.3.0",
     "getenv": "1.0.0",
     "retry": "0.12.0"
   },
