@@ -1,3 +1,10 @@
+## 4.0.24 (2021-05-31)
+
+### Chores
+
+
+bump [@sealsystems](https://github.com/sealsystems)/connect-service from 3.0.15 to 3.0.16 ([#128](https://github.com/sealsystems/node-request-service/issues/128)) ([673cfbb](https://github.com/sealsystems/node-request-service/commit/673cfbb))
+
 ## 4.0.23 (2021-05-31)
 
 ### Chores
